@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/record_editor"
+        android:textColor="@color/dialog_title_color"
+        android:textSize="20sp" />
+
+    <com.virtualfitness.views.WorkoutValuesInputView
+        android:id="@+id/EditorWorkoutValuesInput"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tool:selectedType="cardio"
+        tool:showRestTime="false"
+        tool:showTypeSelector="false" >
+
+    </com.virtualfitness.views.WorkoutValuesInputView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <CheckBox
+            android:id="@+id/updateProgramCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/also_update_program" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:weightSum="60"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            style="@style/Widget.AppCompat.Button.AddButton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="20"
+            android:autoSizeMaxTextSize="14sp"
+            android:autoSizeTextType="uniform"
+            android:text="@android:string/cancel" />
+
+        <Button
+            android:id="@+id/btn_failed"
+            style="@style/Widget.AppCompat.Button.AddButton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="20"
+            android:autoSizeMaxTextSize="14sp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/fail" />
+
+        <Button
+            android:id="@+id/btn_update"
+            style="@style/Widget.AppCompat.Button.AddButton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="20"
+            android:autoSizeMaxTextSize="14sp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/update" />
+
+    </LinearLayout>
+
+</LinearLayout>
