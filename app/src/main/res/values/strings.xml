@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name2" translatable="false">Virtual Fitness</string>
     <string name="global_confirm">Confirmar</string>
     <string name="global_confirm_question">¿Estás seguro?</string>
     <string name="global_warning">Aviso</string>
@@ -151,7 +152,7 @@
     <string name="name_or_pseudo">Nombre / apodo</string>
     <string name="name_is_required">El nombre es necesario</string>
     <string name="create_a_profile">Crear un perfil</string>
-    <string name="introSlide1Text">¡Bienvenido a Fast N Fitness! Esta aplicación es un forma simple y rápida de registrar tu entrenamiento y monitorear tu progreso y evolución corporal.</string>
+    <string name="introSlide1Text">¡Bienvenido a VirtualFitness! Esta aplicación es un forma simple y rápida de registrar tu entrenamiento y monitorear tu progreso y evolución corporal.</string>
     <string name="introSlide2Text">Escribe el nombre del ejercicio y sus detalles; este será creado automáticamente y será añadido a la lista de tus ejercicios.</string>
     <string name="introSlide2Title">Rápido y fácil</string>
     <string name="titleSlideEssential">Vamos a lo escencial</string>
