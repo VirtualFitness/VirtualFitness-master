@@ -4,9 +4,6 @@ import android.content.Context;
 
 import de.psdev.licensesdialog.licenses.License;
 
-/**
- * Created by ccombes on 17/09/05.
- */
 
 public class CustomLicense extends License {
 
