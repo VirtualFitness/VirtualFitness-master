@@ -1,84 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="global_confirm">Confirmar</string>
-    <string name="global_confirm_question">¿Estás seguro?</string>
-    <string name="global_warning">Aviso</string>
-    <string name="global_yes">Sí</string>
+    <string name="global_confirm">Confirm</string>
+    <string name="global_confirm_question">Are you sure?</string>
+    <string name="global_warning">Warning</string>
+    <string name="global_yes">Yes</string>
     <string name="global_no">No</string>
 
-    <string name="action_settings">Configuracion</string>
-    <string name="DateLabel">Fecha</string>
+    <string name="action_settings">Settings</string>
+    <string name="DateLabel">Date</string>
 
-    <string name="FunctionLabel">Visualización</string>
-    <string name="HistoryLabel">Historial</string>
-    <string name="GraphLabel">Gráficas</string>
-    <string name="AddLabel">Añadir</string>
-    <string name="DeleteLabel">Quitar</string>
-    <string name="ShareLabel">Compartir</string>
-    <string name="EditLabel">Editar</string>
-    <string name="DeleteRecordDialog">¿Quitar este registro?</string>
+    <string name="FunctionLabel">Display</string>
+    <string name="HistoryLabel">History</string>
+    <string name="GraphLabel">Graphs</string>
+    <string name="AddLabel">Add</string>
+    <string name="DeleteLabel">Delete</string>
+    <string name="ShareLabel">Share</string>
+    <string name="EditLabel">Edit</string>
+    <string name="DeleteRecordDialog">Remove this record?</string>
 
     <!-- Fonte Fragment -->
-    <string name="FonteLabel">Culturismo</string>
-    <string name="SerieLabel">Series</string>
+    <string name="FonteLabel">Bodybuilding</string>
+    <string name="SerieLabel">Sets</string>
     <string name="RepetitionLabel_short">Reps</string>
-    <string name="MachineLabel">Ejercicio</string>
-    <string name="PoidsLabel">Peso</string>
+    <string name="MachineLabel">Exercise</string>
+    <string name="PoidsLabel">Weight</string>
     <string name="KgUnitLabel" translatable="false">kg</string>
     <string name="LbsUnitLabel" translatable="false">lb</string>
     <string name="StonesUnitLabel" translatable="false">st</string>
-    <string name="NotesLabel">Notas</string>
-    <string name="TopTenLabel">Registros recientes:</string>
+    <string name="NotesLabel">Notes</string>
+    <string name="TopTenLabel">Last records:</string>
 
     <!-- Share text -->
-    <string name="ShareText">Compartir</string>
-    <string name="ShareTitle">Comparte tu desempeño</string>
-    <string name="ShareInstruction">Edita tu texto antes de enviar:</string>
-    <string name="ShareTextDefault">He adelgazado __WEIGHT__ KG en __MACHINE__ !</string>
+    <string name="ShareText">Share</string>
+    <string name="ShareTitle">Share your perf</string>
+    <string name="ShareInstruction">Edit your text before sending:</string>
+    <string name="ShareTextDefault">I have lifted __WEIGHT__ kg on __MACHINE__ !</string>
     <string name="ShareParamWeight" translatable="false">__WEIGHT__</string>
     <string name="ShareParamMachine" translatable="false">__MACHINE__</string>
 
     <!-- Cardio Fragment -->
     <string name="CardioLabel">Cardio</string>
-    <string name="DistanceLabel">Distancia</string>
-    <string name="DurationLabel">Duración</string>
+    <string name="DistanceLabel">Distance</string>
+    <string name="DurationLabel">Duration</string>
 
     <string name="KmUnitLabel" translatable="false">km</string>
     <string name="MilesUnitLabel" translatable="false">miles</string>
 
     <!-- Profile Fragment -->
-    <string name="weightMenuLabel">Monitoreo de peso</string>
-    <string name="weightLabel">Peso</string>
-    <string name="fatLabel">Grasa</string>
-    <string name="bonesLabel">Hueso</string>
-    <string name="waterLabel">Água</string>
-    <string name="musclesLabel">Músculos</string>
-    <string name="measureLabel">Medida</string>
-    <string name="sizeTableLabel">Historial de altura:</string>
-    <string name="createProfilTitle">Crear nuevo perfil</string>
-    <string name="profileSelected">Perfil seleccionado</string>
-    <string name="createProfilQuestion">¿Deseas dar nombre a tu perfil?</string>
-    <string name="userChanged">Usuario modificado</string>
-    <string name="renameProfilTitle">Renombrar perfil</string>
-    <string name="renameProfilQuestion">¿Renombrar este perfil?</string>
+    <string name="weightMenuLabel">Weight Track</string>
+    <string name="weightLabel">Weight</string>
+    <string name="fatLabel">Fat</string>
+    <string name="bonesLabel">Bones</string>
+    <string name="waterLabel">Water</string>
+    <string name="musclesLabel">Muscles</string>
+    <string name="measureLabel">Measure</string>
+    <string name="sizeTableLabel">Measurement history:</string>
+    <string name="createProfilTitle">Create new profile</string>
+    <string name="profileSelected">Profile selected</string>
+    <string name="createProfilQuestion">Choose your profile name?</string>
+    <string name="userChanged">User changed</string>
+    <string name="renameProfilTitle">Rename profile</string>
+    <string name="renameProfilQuestion">Rename this profile?</string>
 
     <!-- Pour le menu settings -->
-    <string name="SettingLabel">Ajustes</string>
-    <string name="export_database">Exportar registros</string>
-    <string name="export_question">¿Deseas exportar la base de datos de </string>
-    <string name="export_success">Base de dados exportada exitosamente</string>
-    <string name="export_failed">Error al exportar la base de datos</string>
-    <string name="import_database">Importar registros</string>
-    <string name="deleteDB_warning">
-        Esta acción reestablecerá toda la aplicación.
-        Toda la información será borrada.
-        ¿Estás seguro?
-        La aplicación se cerrará al confirmar.
-    </string>
-    <string name="ResetAppLabel">Reestablecer aplicación</string>
+    <string name="SettingLabel">Settings</string>
+    <string name="export_database">Export Records</string>
+    <string name="export_question">Export the database of </string>
+    <string name="export_success">Database exported</string>
+    <string name="export_failed">Could not export database</string>
+    <string name="import_database">Import Records</string>
+
+    <string name="removedid">ID removed</string>
+    <string name="failedtocreatefolder">Could not create folder</string>
+
+    <string name="deleteDB_warning">Reset the entire app and exit?\n(All data will be lost.)</string>
+    <string name="ResetAppLabel">Reset app</string>
 
     <!-- Machine Fragment -->
-    <string name="MachinesLabel">Ejercicios</string>
+    <string name="MachinesLabel">Exercises</string>
 
     <!-- Preferences -->
     <string name="pref_ui_setting">UI Settings</string>
@@ -126,7 +125,7 @@
     <string name="profil_select_profil_to_delete">Select a profile to delete</string>
 
     <!-- About Fragment  -->
-    <string name="AboutLabel">Acerca</string>
+    <string name="AboutLabel">About</string>
 
     <!-- Navigation Drawer -->
     <string name="drawer_open">Open navigation drawer</string>
@@ -211,23 +210,23 @@
     <!-- Muscles -->
     <string name="biceps">Biceps</string>
     <string name="triceps">Triceps</string>
-    <string name="pectoraux">Pecho</string>
+    <string name="pectoraux">Chest</string>
     <string name="deltoids">Deltoids</string>
 
-    <string name="dorseaux">Espalda</string>
-    <string name="abdominaux">Abdominales</string>
+    <string name="dorseaux">Back</string>
+    <string name="abdominaux">Abdominals</string>
 
     <string name="quadriceps">Quadriceps</string>
     <string name="ischio_jambiers">Hamstrings</string>
-    <string name="adducteurs">Muslos</string>
+    <string name="adducteurs">Thighs</string>
     <string name="mollets">Calves</string>
 
-    <string name="trapezius">Trapecios</string>
-    <string name="obliques">Oblicuos</string>
+    <string name="trapezius">Trapezius</string>
+    <string name="obliques">Obliques</string>
 
     <!-- Body Parts -->
-    <string name="left_arm">Bicep derecho</string>
-    <string name="right_arm">Bicep izquierdo</string>
+    <string name="left_arm">Left biceps</string>
+    <string name="right_arm">Right biceps</string>
     <string name="neck">Neck</string>
     <string name="left_thigh">Left thigh</string>
     <string name="right_thigh">Right thigh</string>
@@ -235,9 +234,9 @@
     <string name="right_calves">Right calves</string>
     <string name="waist">Waist</string>
     <string name="behind">Hips</string>
-    <string name="shoulders">Hombros</string>
-    <string name="glutes">Gluteos</string>
-    <string name="size">Tamanio</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="glutes">Glutes</string>
+    <string name="size">Size</string>
 
     <string name="backDialog_confirm_text">Save before exiting?</string>
     <string name="deleteMachine_confirm_text">Delete this exercise and all associated records?</string>
