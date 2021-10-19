@@ -1,6 +1,5 @@
 package com.virtualfitness.fonte;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,7 +63,7 @@ public class FontesPagerFragment extends Fragment {
             pagerAdapter = new FragmentPagerItemAdapter(
                     getChildFragmentManager(), FragmentPagerItems.with(this.getContext())
                     .add(R.string.free_workout, FontesFragment.class, freeWorkoutArgs)
-                    .add(R.string.program, ProgramRunnerFragment.class, guidedWorkoutArgs)
+                    //.add(R.string.program, ProgramRunnerFragment.class, guidedWorkoutArgs)
                     .add(R.string.GraphLabel, FonteGraphFragment.class, args)
                     .add(R.string.HistoryLabel, FonteHistoryFragment.class, args)
                     .create());
@@ -77,16 +76,13 @@ public class FontesPagerFragment extends Fragment {
             viewPagerTab.setOnPageChangeListener(new OnPageChangeListener() {
                 @Override
                 public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
                 }
-
                 @Override
                 public void onPageSelected(int position) {
                     Fragment frag1 = pagerAdapter.getPage(position);
                     if (frag1 != null)
                         frag1.onHiddenChanged(false); // Refresh data
                 }
-
                 @Override
                 public void onPageScrollStateChanged(int state) {
                 }
@@ -104,11 +100,7 @@ public class FontesPagerFragment extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         if (!hidden) {
-            // rafraichit le fragment courant
-
             if (getViewPagerAdapter() != null) {
-                // Moyen de rafraichir tous les fragments. Attention, les View des fragments peuvent avoir ete detruit.
-                // Il faut donc que cela soit pris en compte dans le refresh des fragments.
                 Fragment frag1;
                 for (int i = 0; i < 4; i++) {
                     frag1 = getViewPagerAdapter().getPage(i);
