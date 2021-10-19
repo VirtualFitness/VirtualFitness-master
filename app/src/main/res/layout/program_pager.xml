@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,7 +22,8 @@
             android:background="@android:color/transparent"
             android:baselineAlignBottom="false"
             android:cropToPadding="false"
-            android:src="@drawable/ic_delete" />
+            android:src="@drawable/ic_delete"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -51,12 +53,14 @@
         app:stl_indicatorWithoutPadding="false"
         app:stl_overlineThickness="0dp"
         app:stl_titleOffset="24dp"
-        app:stl_underlineThickness="1dp" />
+        app:stl_underlineThickness="1dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/program_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/program_pagertab" />
+        android:layout_below="@id/program_pagertab"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </RelativeLayout>

@@ -1,13 +1,11 @@
 package com.virtualfitness;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Gravity;
@@ -25,8 +23,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -58,7 +54,6 @@ import com.virtualfitness.machines.MachineFragment;
 import com.virtualfitness.programs.ProgramListFragment;
 import com.virtualfitness.utils.DateConverter;
 import com.virtualfitness.utils.ImageUtil;
-import com.virtualfitness.utils.MusicController;
 import com.virtualfitness.utils.UnitConverter;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.onurkaganaldemir.ktoastlib.KToast;
@@ -100,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int IMPORT_DATABASE = 2;
     public static final int OPEN_MUSIC_FILE = 3;
 
-    private final MusicController musicController = new MusicController(this);
     CustomDrawerAdapter mDrawerAdapter;
     List<DrawerItem> dataList;
     /* Fragments */
@@ -304,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
         dataList.add(drawerTitleItem);
         dataList.add(new DrawerItem(this.getResources().getString(R.string.menu_Workout), R.drawable.ic_fitness_center, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.MachinesLabel), R.drawable.ic_exercises, true));
-        dataList.add(new DrawerItem("Programs List", R.drawable.ic_exam, true));
+        //dataList.add(new DrawerItem("Lista de programas", R.drawable.ic_exam, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.weightMenuLabel), R.drawable.ic_bathroom_scale, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.bodytracking), R.drawable.ic_ruler, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.SettingLabel), R.drawable.ic_settings, true));
@@ -330,8 +324,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        musicController.initView();
-
         // Lance l'intro
         // Tester si l'intro a déjà été lancé
         if (!mIntro014Launched) {
@@ -352,8 +344,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean bShowMP3 = SP.getBoolean("prefShowMP3", false);
-        this.showMP3Toolbar(bShowMP3);
     }
 
 
@@ -615,14 +605,6 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 KToast.infoToast(this, getString(R.string.access_granted), Gravity.BOTTOM, KToast.LENGTH_SHORT);
-            } else {
-                KToast.infoToast(this, getString(R.string.another_time_maybe), Gravity.BOTTOM, KToast.LENGTH_SHORT);
-            }
-        } else if (requestCode == MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE) {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                KToast.infoToast(this, getString(R.string.access_granted), Gravity.BOTTOM, KToast.LENGTH_SHORT);
-                musicController.chooseDirectory();
             } else {
                 KToast.infoToast(this, getString(R.string.another_time_maybe), Gravity.BOTTOM, KToast.LENGTH_SHORT);
             }
@@ -913,14 +895,6 @@ public class MainActivity extends AppCompatActivity {
         if (top_toolbar != null) setSupportActionBar(top_toolbar);
     }
 
-    public void showMP3Toolbar(boolean show) {
-        Toolbar mp3toolbar = this.findViewById(R.id.musicToolbar);
-        if (!show) {
-            mp3toolbar.setVisibility(View.GONE);
-        } else {
-            mp3toolbar.setVisibility(View.VISIBLE);
-        }
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -999,7 +973,7 @@ public class MainActivity extends AppCompatActivity {
         if (mCurrentProfile != null) setCurrentProfile(mCurrentProfile.getName());
 
     }
-
+// Menu lateral
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {

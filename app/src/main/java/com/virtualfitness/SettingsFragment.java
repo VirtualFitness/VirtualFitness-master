@@ -80,16 +80,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         //addPreferencesFromResource(R.xml.settings);
 
-        Preference myPref = findPreference("prefShowMP3");
-        myPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            if (newValue instanceof Boolean) {
-                Boolean boolVal = (Boolean) newValue;
-                mActivity.showMP3Toolbar(boolVal);
-            }
-
-            return true;
-        });
-
         Preference myPref2 = findPreference(WEIGHT_UNIT_PARAM);
         myPref2.setOnPreferenceChangeListener((preference, newValue) -> {
             ListPreference listPreference = (ListPreference) preference;

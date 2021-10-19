@@ -33,16 +33,7 @@ public class AboutFragment extends Fragment {
         String copyright = null;
         License license = null;
 
-        switch (v.getId()) {
-            case R.id.FastNFitness:
-                name = "FastNFitness";
-                url = "https://github.com/brodeurlv/fastnfitness";
-                copyright = "Copyright(c) 2021 - Charles Combes - All rights reserved";
-                break;
-
-        }
-
-        final Notice notice = new Notice(name, url, copyright, license);
+           final Notice notice = new Notice(name, url, copyright, license);
         new LicensesDialog.Builder(getMainActivity())
                 .setNotices(notice)
                 .build()
@@ -76,12 +67,6 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.tab_about, container, false);
-
-        TextView mpDBVersionTextView = view.findViewById(R.id.database_version);
-        mpDBVersionTextView.setText(Integer.toString(DatabaseHelper.DATABASE_VERSION));
-        TextView mpFastNFitnesss = view.findViewById(R.id.FastNFitness);
-
-        mpFastNFitnesss.setOnClickListener(clickLicense);
 
         // Inflate the layout for this fragment
         return view;
