@@ -22,10 +22,12 @@
     <item
         android:id="@+id/export_database"
         android:title="@string/export_database"
+        android:visible="false"
         app:showAsAction="never|withText" />
     <item
         android:id="@+id/import_database"
         android:title="@string/import_database"
+        android:visible="false"
         app:showAsAction="never|withText" />
 
     <item

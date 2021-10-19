@@ -351,57 +351,28 @@ public class MainActivity extends AppCompatActivity {
             initDEBUGdata();
         }
 
-        if ( !mMigrationToScopedStoragedone) { //do the migration only once.
-            migrateDatabase();
-        }
-
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean bShowMP3 = SP.getBoolean("prefShowMP3", false);
         this.showMP3Toolbar(bShowMP3);
-        this.checkLastBackup(SP);
     }
 
-    private void checkLastBackup(SharedPreferences SP) {
-        int milliSecondsOfDay = 86400000; // 24 * 60 * 60 * 1000
-        int milliSecondsOfWeek = 604800000; // 7 * 24 * 60 * 60 * 1000
-        long milliSecondsOfMonth = 2419200000L; // 4 * 7 * 24 * 60 * 60 * 1000
 
-        long lastBackupUTCTime = SP.getLong("prefLastTimeBackupUTCTime", -1);
-        int prefBackupSetting = Integer.parseInt(SP.getString("defaultBackupSetting", "0"));
-        if (lastBackupUTCTime == -1 && prefBackupSetting > 0) {
-            //KToast.warningToast(getActivity(), getActivity().getResources().getText(R.string.backup_warning_never).toString(), Gravity.BOTTOM, KToast.LENGTH_LONG);
-            exportDatabase(getActivity().getResources().getText(R.string.backup_warning_never).toString());
-        } else {
-            if (prefBackupSetting == 1 && System.currentTimeMillis() - lastBackupUTCTime > milliSecondsOfDay) {
-                //KToast.warningToast(getActivity(), getActivity().getResources().getText(R.string.backup_warning_day).toString(), Gravity.BOTTOM, KToast.LENGTH_LONG);
-                exportDatabase(getActivity().getResources().getText(R.string.backup_warning_day).toString());
-            } else if (prefBackupSetting == 2 && System.currentTimeMillis() - lastBackupUTCTime > milliSecondsOfWeek) {
-                //KToast.warningToast(getActivity(), getActivity().getResources().getText(R.string.backup_warning_week).toString(), Gravity.BOTTOM, KToast.LENGTH_LONG);
-                exportDatabase(getActivity().getResources().getText(R.string.backup_warning_week).toString());
-            } else if (prefBackupSetting == 3 && System.currentTimeMillis() - lastBackupUTCTime > milliSecondsOfMonth) {
-                //KToast.warningToast(getActivity(), getActivity().getResources().getText(R.string.backup_warning_month).toString(), Gravity.BOTTOM, KToast.LENGTH_LONG);
-                exportDatabase(getActivity().getResources().getText(R.string.backup_warning_month).toString());
-            }
-        }
-    }
 
     private void initDEBUGdata() {
         if (BuildConfig.DEBUG_MODE) {
             // do something for a debug build
             DAOFonte lDbFonte = new DAOFonte(this);
             if (lDbFonte.getCount() == 0) {
-                lDbFonte.addBodyBuildingRecord(DateConverter.dateToDate(2019, 7, 1, 12, 34, 56), "Example 1", 1, 10, 40, WeightUnit.KG, "", this.getCurrentProfile().getId(), -1);
-                lDbFonte.addBodyBuildingRecord(DateConverter.dateToDate(2019, 6, 30, 12, 34, 56), "Example 2", 1, 10, UnitConverter.LbstoKg(60), WeightUnit.LBS, "", this.getCurrentProfile().getId(), -1);
+                lDbFonte.addBodyBuildingRecord(DateConverter.dateToDate(2021, 10, 18, 12, 34, 56), "Ejercicio 1", 1, 10, 40, WeightUnit.KG, "", this.getCurrentProfile().getId(), -1);
+                lDbFonte.addBodyBuildingRecord(DateConverter.dateToDate(2021, 10, 18, 12, 34, 56), "Ejercicio 2", 1, 10, UnitConverter.LbstoKg(60), WeightUnit.LBS, "", this.getCurrentProfile().getId(), -1);
             }
             DAOCardio lDbCardio = new DAOCardio(this);
             if (lDbCardio.getCount() == 0) {
-                lDbCardio.addCardioRecord(DateConverter.dateToDate(2019, 7, 1), "Running Example", 1, 10000, this.getCurrentProfile().getId(), DistanceUnit.KM, -1);
-                lDbCardio.addCardioRecord(DateConverter.dateToDate(2019, 7, 31), "Cardio Example", UnitConverter.MilesToKm(2), 20000, this.getCurrentProfile().getId(), DistanceUnit.MILES, -1);
+                lDbCardio.addCardioRecord(DateConverter.dateToDate(2021, 10, 18), "Cardio Example", UnitConverter.MilesToKm(2), 20000, this.getCurrentProfile().getId(), DistanceUnit.MILES, -1);
             }
             DAOStatic lDbStatic = new DAOStatic(this);
             if (lDbStatic.getCount() == 0) {
-                lDbStatic.addStaticRecord(DateConverter.dateToDate(2019, 7, 1, 12, 34, 56), "Exercise ISO 1", 1, 50, 40, this.getCurrentProfile().getId(), WeightUnit.KG, "", -1);
-                lDbStatic.addStaticRecord(DateConverter.dateToDate(2019, 7, 31, 12, 34, 56), "Exercise ISO 2", 1, 60, UnitConverter.LbstoKg(40), this.getCurrentProfile().getId(), WeightUnit.LBS, "", -1);
+                lDbStatic.addStaticRecord(DateConverter.dateToDate(2021, 10, 18, 12, 34, 56), "Exercise ISO 1", 1, 50, 40, this.getCurrentProfile().getId(), WeightUnit.KG, "", -1);
             }
             DAOProgram lDbWorkout = new DAOProgram(this);
             if (lDbWorkout.getCount() == 0) {
@@ -523,36 +494,7 @@ public class MainActivity extends AppCompatActivity {
         return success;
     }
 
-    @SuppressWarnings("deprecation")
-    private void migrateDatabase() {
-        File folder = new File(Environment.getExternalStorageDirectory() + "/FastnFitness");
-        if (!folder.exists()) {
-            mMigrationToScopedStoragedone = true;
-            savePreferences();
-            return;
-        }
 
-        AlertDialog.Builder exportDbBuilder = new AlertDialog.Builder(this);
-        exportDbBuilder.setTitle(getActivity().getResources().getText(R.string.database_migration));
-        exportDbBuilder.setMessage(R.string.disclaimer_scoped_storage);
-        exportDbBuilder.setPositiveButton(getActivity().getResources().getText(R.string.global_yes), (dialog, which) -> {
-            if (!migrateToScopedStorage()) {
-                // Display error box for information
-                AlertDialog.Builder errorDialogBuilder = new AlertDialog.Builder(this);
-                errorDialogBuilder.setTitle(R.string.database_migration);
-                errorDialogBuilder.setMessage(R.string.something_went_wrong);
-                AlertDialog errorDialog = errorDialogBuilder.create();
-                errorDialog.show();
-            } else {
-                KToast.infoToast(this, getString(R.string.database_migration_success), Gravity.BOTTOM, KToast.LENGTH_SHORT);
-            }
-            mMigrationToScopedStoragedone = true;
-            savePreferences();
-        });
-
-        AlertDialog exportDbDialog = exportDbBuilder.create();
-        exportDbDialog.show();
-    }
 
     private void openExportDatabaseDialog(String autoExportMessage) {
         AlertDialog.Builder exportDbBuilder = new AlertDialog.Builder(this);
@@ -586,28 +528,7 @@ public class MainActivity extends AppCompatActivity {
         exportDbDialog.show();
     }
 
-    private void exportDatabase(String autoExportMessage) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_FOR_EXPORT);
-            } else {
-                openExportDatabaseDialog(autoExportMessage);
-            }
-        } else {
-            openExportDatabaseDialog(autoExportMessage);
-        }
-    }
 
-    private void importDatabase() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/*");
-        startActivityForResult(intent, IMPORT_DATABASE);
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -619,12 +540,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.export_database:
-                exportDatabase("");
-                return true;
-            case R.id.import_database:
-                importDatabase();
-                return true;
+
             case R.id.action_deleteDB:
                 // Afficher une boite de dialogue pour confirmer
                 AlertDialog.Builder deleteDbBuilder = new AlertDialog.Builder(this);
@@ -699,7 +615,6 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 KToast.infoToast(this, getString(R.string.access_granted), Gravity.BOTTOM, KToast.LENGTH_SHORT);
-                importDatabase();
             } else {
                 KToast.infoToast(this, getString(R.string.another_time_maybe), Gravity.BOTTOM, KToast.LENGTH_SHORT);
             }
@@ -1041,16 +956,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } else if (resultCode == RESULT_OK && requestCode == OPEN_MUSIC_FILE) {
             Uri uri = null;
-            if (data != null) {
-                uri = data.getData();
-                // Return for MusicController Choose file
-                musicController.OpenMusicFileIntentResult(uri);
-                final int takeFlags = data.getFlags()
-                        & (Intent.FLAG_GRANT_READ_URI_PERMISSION
-                        | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                // Check for the freshest data.
-                getContentResolver().takePersistableUriPermission(uri, takeFlags);
-            }
+
         }
     }
 

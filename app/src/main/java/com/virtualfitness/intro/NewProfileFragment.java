@@ -67,16 +67,14 @@ public class NewProfileFragment extends SlideFragment {
     private Button mBtCreate;
     private RadioButton mRbMale;
     private RadioButton mRbFemale;
-    private RadioButton mRbOtherGender;
     private boolean mProfilCreated = false;
     private final View.OnClickListener clickCreateButton = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // Initialisation des objets DB
+            // Inicailizar los objetos de la BD
             DAOProfile mDbProfiles = new DAOProfile(v.getContext());
 
             if (mName.getText().toString().isEmpty()) {
-                //Toast.makeText(getActivity().getBaseContext(), R.string.fillAllFields, Toast.LENGTH_SHORT).show();
                 KToast.warningToast(getActivity(), getResources().getText(R.string.fillNameField).toString(), Gravity.BOTTOM, KToast.LENGTH_SHORT);
             } else {
                 int lGender = Gender.UNKNOWN;
@@ -84,12 +82,10 @@ public class NewProfileFragment extends SlideFragment {
                     lGender = Gender.MALE;
                 } else if (mRbFemale.isChecked()) {
                     lGender = Gender.FEMALE;
-                } else if (mRbOtherGender.isChecked()) {
-                    lGender = Gender.OTHER;
                 }
 
                 Profile p = new Profile(mName.getText().toString(), 0, DateConverter.localDateStrToDate(mBirthday.getText().toString(), getContext()), lGender);
-                // Create the new profil
+                // Crear un nuevo perfil
                 mDbProfiles.addProfile(p);
                 //Toast.makeText(getActivity().getBaseContext(), R.string.profileCreated, Toast.LENGTH_SHORT).show();
 
@@ -132,11 +128,10 @@ public class NewProfileFragment extends SlideFragment {
         mBtCreate = view.findViewById(R.id.create_newprofil);
         mRbMale = view.findViewById(R.id.radioButtonMale);
         mRbFemale = view.findViewById(R.id.radioButtonFemale);
-        mRbOtherGender = view.findViewById(R.id.radioButtonOtherGender);
 
         mBirthday.setOnClickListener(v -> showDatePickerFragment());
 
-        /* Initialisation des boutons */
+        /* Inicializar los botones */
         mBtCreate.setOnClickListener(clickCreateButton);
 
         getIntroActivity().addOnNavigationBlockedListener((position, direction) -> {
@@ -147,7 +142,7 @@ public class NewProfileFragment extends SlideFragment {
             }
         });
 
-        // Inflate the layout for this fragment
+        // Inflar los layouts
         return view;
     }
 

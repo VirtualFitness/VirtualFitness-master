@@ -152,14 +152,14 @@
     <string name="name_or_pseudo">Nombre / apodo</string>
     <string name="name_is_required">El nombre es necesario</string>
     <string name="create_a_profile">Crear un perfil</string>
-    <string name="introSlide1Text">¡Bienvenido a VirtualFitness! Esta aplicación es un forma simple y rápida de registrar tu entrenamiento y monitorear tu progreso y evolución corporal.</string>
+    <string name="introSlide1Text">¡Bienvenido a VirtualFitness!.</string>
     <string name="introSlide2Text">Escribe el nombre del ejercicio y sus detalles; este será creado automáticamente y será añadido a la lista de tus ejercicios.</string>
     <string name="introSlide2Title">Rápido y fácil</string>
     <string name="titleSlideEssential">Vamos a lo escencial</string>
     <string name="textSlideEssential">No hay ejercicio preestablecido. Tú creas tus propios ejercicios, usando las máquinas que tengas en tu gimnasio / lugar de entrenamiento.</string>
     <string name="pressBackAgain">Vuelve atrás de nuevo para salir</string>
-    <string name="titleSlideOpenSource">¡Es de código abierto!</string>
-    <string name="textSlideOpenSource">¡Únete a la comunidad y juntos construyamos una aplicación de fitness mejorada! Visítanos en https://github.com/brodeurlv/fastnfitness</string>
+    <string name="titleSlideOpenSource"></string>
+    <string name="textSlideOpenSource"></string>
     <string name="profileCreated">Perfil creado</string>
     <string name="missinginfo">Falta información</string>
     <string name="createExerciseFirst">Primero debes crear un ejercicio</string>
@@ -189,7 +189,7 @@
     <string name="overweight">sobrepeso</string>
     <string name="obese">obeso</string>
     <string name="maleGender">Masculino</string>
-    <string name="femaleGender">Feminino</string>
+    <string name="femaleGender">Femenino</string>
     <string name="otherGender">Otro</string>
     <string name="enter_gender_here">¿Cuál es tu género?</string>
     <string name="no_size_available">Sin altura disponible</string>

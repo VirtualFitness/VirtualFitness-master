@@ -106,20 +106,6 @@
                     android:textSize="20sp"
                     android:textColor="@android:color/black" />
 
-                <RadioButton
-                    android:id="@+id/radioButtonOtherGender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/radio_button"
-                    android:button="@null"
-                    android:gravity="center_horizontal"
-                    android:padding="2dp"
-                    android:text="@string/otherGender"
-                    android:textSize="20sp"
-                    android:textColor="@android:color/black" />
-
             </RadioGroup>
 
             <TextView

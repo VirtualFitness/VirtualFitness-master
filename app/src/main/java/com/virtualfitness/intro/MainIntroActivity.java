@@ -10,12 +10,10 @@ import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 import com.heinrichreimersoftware.materialintro.slide.Slide;
 
+
+// INTERFAZ DE BIENVENIDA PARA EL USUARIO
 public class MainIntroActivity extends IntroActivity {
 
-    public static final String EXTRA_FULLSCREEN = "com.heinrichreimersoftware.materialintro.demo.EXTRA_FULLSCREEN";
-    public static final String EXTRA_SCROLLABLE = "com.heinrichreimersoftware.materialintro.demo.EXTRA_SCROLLABLE";
-    public static final String EXTRA_CUSTOM_FRAGMENTS = "com.heinrichreimersoftware.materialintro.demo.EXTRA_CUSTOM_FRAGMENTS";
-    public static final String EXTRA_PERMISSIONS = "com.heinrichreimersoftware.materialintro.demo.EXTRA_PERMISSIONS";
     public static final String EXTRA_SHOW_BACK = "com.heinrichreimersoftware.materialintro.demo.EXTRA_SHOW_BACK";
     public static final String EXTRA_SHOW_NEXT = "com.heinrichreimersoftware.materialintro.demo.EXTRA_SHOW_NEXT";
     public static final String EXTRA_SKIP_ENABLED = "com.heinrichreimersoftware.materialintro.demo.EXTRA_SKIP_ENABLED";
@@ -26,8 +24,6 @@ public class MainIntroActivity extends IntroActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
 
-        boolean customFragments = intent.getBooleanExtra(EXTRA_CUSTOM_FRAGMENTS, true);
-        boolean permissions = intent.getBooleanExtra(EXTRA_PERMISSIONS, true);
         boolean showBack = intent.getBooleanExtra(EXTRA_SHOW_BACK, true);
         boolean showNext = intent.getBooleanExtra(EXTRA_SHOW_NEXT, true);
         boolean skipEnabled = intent.getBooleanExtra(EXTRA_SKIP_ENABLED, false);
@@ -53,59 +49,12 @@ public class MainIntroActivity extends IntroActivity {
                 .backgroundDark(R.color.launcher_background)
                 .scrollable(true)
                 .build());
-
-        addSlide(new SimpleSlide.Builder()
-                .title(R.string.introSlide2Title)
-                .description(R.string.introSlide2Text)
-                .image(R.drawable.bench_hi_res_512)
-                .background(R.color.launcher_background)
-                .backgroundDark(R.color.launcher_background)
-                .scrollable(true)
-                .build());
-
-        addSlide(new SimpleSlide.Builder()
-                .title(R.string.titleSlideEssential)
-                .description(R.string.textSlideEssential)
-                .image(R.drawable.idea_hi_res_485)
-                .background(R.color.launcher_background)
-                .backgroundDark(R.color.launcher_background)
-                .scrollable(true)
-                .build());
-
-        addSlide(new SimpleSlide.Builder()
-                .title(R.string.titleSlideOpenSource)
-                .description(R.string.textSlideOpenSource)
-                .image(R.drawable.group_hi_res_512)
-                .background(R.color.launcher_background)
-                .backgroundDark(R.color.launcher_background)
-                .scrollable(true)
-                .build());
-
-/*
-        final Slide permissionsSlide;
-        if (permissions) {
-            permissionsSlide = new SimpleSlide.Builder()
-                .title(R.string.introSlide3Title)
-                .description(R.string.introSlide3Text)
-                .image(R.drawable.ic_settings_black_48dp)
-                .background(R.color.tableheader_background)
-                .backgroundDark(R.color.background_odd)
-                .scrollable(true)
-                .permissions(new String[]{Manifest.permission.CAMERA,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE})
-                .build();
-            addSlide(permissionsSlide);
-        } else {
-            permissionsSlide = null;
-        }
-*/
-
-        // Initialisation des objets DB
+        // Inicializacion de los objetos de la BD
         DAOProfile mDbProfils = new DAOProfile(this.getApplicationContext());
 
-        // Pour la base de donnee profil, il faut toujours qu'il y ai au moins un profil
+        // Para la base de datos de perfiles, siempre debe haber al menos un perfil
         if (mDbProfils.getCount() == 0) {
-            // Ouvre la fenetre de creation de profil
+            // Abra la ventana de creación de perfil
             final Slide profileSlide = new FragmentSlide.Builder()
                     .background(R.color.launcher_background)
                     .backgroundDark(R.color.launcher_background)
