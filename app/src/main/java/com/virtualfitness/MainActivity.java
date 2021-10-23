@@ -49,6 +49,7 @@ import com.virtualfitness.enums.DistanceUnit;
 import com.virtualfitness.enums.ExerciseType;
 import com.virtualfitness.enums.WeightUnit;
 import com.virtualfitness.fonte.FontesPagerFragment;
+import com.virtualfitness.programs.FoodListSearchFragment;
 import com.virtualfitness.intro.MainIntroActivity;
 import com.virtualfitness.machines.MachineFragment;
 import com.virtualfitness.programs.ProgramListFragment;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     public static String WORKOUTS = "Workouts";
     public static String WORKOUTPAGER = "WorkoutPager";
     public static String PREFS_NAME = "prefsfile";
+    //public static String FOOD = "foodsearch";
     private final int REQUEST_CODE_INTRO = 111;
     private final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_FOR_EXPORT = 1001;
     private final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_FOR_IMPORT = 1002;
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     private WeightFragment mpWeightFrag = null;
     private ProfileFragment mpProfileFrag = null;
     private MachineFragment mpMachineFrag = null;
+    private FoodListSearchFragment fdFoodFrag =null;
     private SettingsFragment mpSettingFrag = null;
     private AboutFragment mpAboutFrag = null;
     private BodyPartListFragment mpBodyPartListFrag = null;
@@ -219,9 +222,11 @@ public class MainActivity extends AppCompatActivity {
                 mpFontesPagerFrag = FontesPagerFragment.newInstance(FONTESPAGER, 6);
             if (mpWeightFrag == null) mpWeightFrag = WeightFragment.newInstance(WEIGHT, 5);
             if (mpProfileFrag == null) mpProfileFrag = ProfileFragment.newInstance(PROFILE, 10);
-            if (mpSettingFrag == null) mpSettingFrag = SettingsFragment.newInstance(SETTINGS, 8);
             if (mpAboutFrag == null) mpAboutFrag = AboutFragment.newInstance(ABOUT, 4);
             if (mpMachineFrag == null) mpMachineFrag = MachineFragment.newInstance(MACHINES, 7);
+
+            //if (fdFoodFrag == null) fdFoodFrag = FoodListSearchFragment.newInstance(FOOD,1);
+
             if (mpBodyPartListFrag == null)
                 mpBodyPartListFrag = BodyPartListFragment.newInstance(BODYTRACKING, 9);
             if (mpWorkoutListFrag == null)
@@ -230,8 +235,8 @@ public class MainActivity extends AppCompatActivity {
             mpFontesPagerFrag = (FontesPagerFragment) getSupportFragmentManager().getFragment(savedInstanceState, FONTESPAGER);
             mpWeightFrag = (WeightFragment) getSupportFragmentManager().getFragment(savedInstanceState, WEIGHT);
             mpProfileFrag = (ProfileFragment) getSupportFragmentManager().getFragment(savedInstanceState, PROFILE);
-            mpSettingFrag = (SettingsFragment) getSupportFragmentManager().getFragment(savedInstanceState, SETTINGS);
             mpAboutFrag = (AboutFragment) getSupportFragmentManager().getFragment(savedInstanceState, ABOUT);
+            //fdFoodFrag = (FoodListSearchFragment) getSupportFragmentManager().getFragment(savedInstanceState, FOOD);
             mpMachineFrag = (MachineFragment) getSupportFragmentManager().getFragment(savedInstanceState, MACHINES);
             mpBodyPartListFrag = (BodyPartListFragment) getSupportFragmentManager().getFragment(savedInstanceState, BODYTRACKING);
             mpWorkoutListFrag = (ProgramListFragment) getSupportFragmentManager().getFragment(savedInstanceState, WORKOUTS);
@@ -297,8 +302,9 @@ public class MainActivity extends AppCompatActivity {
 
         dataList.add(drawerTitleItem);
         dataList.add(new DrawerItem(this.getResources().getString(R.string.menu_Workout), R.drawable.ic_fitness_center, true));
-        //dataList.add(new DrawerItem(this.getResources().getString(R.string.MachinesLabel), R.drawable.ic_exercises, true));
-        //dataList.add(new DrawerItem("Lista de programas", R.drawable.ic_exam, true));
+        dataList.add(new DrawerItem(this.getResources().getString(R.string.MachinesLabel), R.drawable.ic_exercises, true));
+        dataList.add(new DrawerItem("Lista de programas", R.drawable.ic_exam, true));
+        dataList.add(new DrawerItem(this.getResources().getString(R.string.food), R.drawable.ic_food, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.weightMenuLabel), R.drawable.ic_bathroom_scale, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.bodytracking), R.drawable.ic_ruler, true));
         //dataList.add(new DrawerItem(this.getResources().getString(R.string.SettingLabel), R.drawable.ic_settings, true));
@@ -391,8 +397,10 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().putFragment(outState, MACHINES, mpMachineFrag);
         if (getAboutFragment().isAdded())
             getSupportFragmentManager().putFragment(outState, ABOUT, mpAboutFrag);
-        if (getSettingsFragment().isAdded())
-            getSupportFragmentManager().putFragment(outState, SETTINGS, mpSettingFrag);
+        //if (getFdFoodFrag().isAdded())
+            //getSupportFragmentManager().putFragment(outState, SETTINGS, mpSettingFrag);
+        //if (getSettingsFragment().isAdded())
+            //getSupportFragmentManager().putFragment(outState, FOOD, fdFoodFrag);
         if (getBodyPartFragment().isAdded())
             getSupportFragmentManager().putFragment(outState, BODYTRACKING, mpBodyPartListFrag);
         if (getWorkoutListFragment().isAdded())
@@ -577,13 +585,7 @@ public class MainActivity extends AppCompatActivity {
                 showFragment(ABOUT);
                 //getAboutFragment().setHasOptionsMenu(true);
                 return true;
-            //case android.R.id.home:
-            //onBackPressed();
-            //	return true;
-            case R.id.action_chrono:
-                ChronoDialogbox cdd = new ChronoDialogbox(MainActivity.this);
-                cdd.show();
-                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -738,6 +740,8 @@ public class MainActivity extends AppCompatActivity {
             ft.replace(R.id.fragment_container, getWorkoutListFragment(), WORKOUTS);
         } else if (pFragmentName.equals(ABOUT)) {
             ft.replace(R.id.fragment_container, getAboutFragment(), ABOUT);
+        //} else if (pFragmentName.equals(FOOD)) {
+            //ft.replace(R.id.fragment_container, getAboutFragment(), FOOD);
         } else if (pFragmentName.equals(BODYTRACKING)) {
             ft.replace(R.id.fragment_container, getBodyPartFragment(), BODYTRACKING);
         } else if (pFragmentName.equals(PROFILE)) {
@@ -859,6 +863,13 @@ public class MainActivity extends AppCompatActivity {
 
         return mpAboutFrag;
     }
+    /*private FoodListSearchFragment getFdFoodFrag() {
+        if (fdFoodFrag == null)
+            fdFoodFrag = (FoodListSearchFragment) getSupportFragmentManager().findFragmentByTag(FOOD);
+        //if (fdFoodFrag == null) fdFoodFrag = FoodListSearchFragment.newInstance(FOOD, 12);
+
+        return fdFoodFrag;
+    }*/
 
     private BodyPartListFragment getBodyPartFragment() {
         if (mpBodyPartListFrag == null)
@@ -990,31 +1001,35 @@ public class MainActivity extends AppCompatActivity {
                     showFragment(FONTESPAGER);
                     setTitle(getResources().getText(R.string.menu_Workout));
                     break;
-                /*
+
                 case 2:
                     showFragment(MACHINES);
                     setTitle(getResources().getText(R.string.MachinesLabel));
-                    break;*/
-                /*
+                    break;
+
                 case 3:
                     showFragment(WORKOUTS);
                     setTitle(getString(R.string.workout_list_menu_item));
-                    break;*/
-                case 2:
+                    break;
+                case 4:
                     showFragment(WEIGHT);
                     setTitle(getResources().getText(R.string.weightMenuLabel));
                     break;
-                case 3:
+                case 5:
                     showFragment(BODYTRACKING);
                     setTitle(getResources().getText(R.string.bodytracking));
                     break;
-                /*
+                /*case 4:
+                    showFragment(FOOD);
+                    setTitle(getResources().getText(R.string.food));
+                    break;*/
+
                 case 6:
                     showFragment(SETTINGS);
                     setTitle(getResources().getText(R.string.SettingLabel));
                     break;
-                */
-                case 4:
+
+                case 7:
                     showFragment(ABOUT);
                     setTitle(getResources().getText(R.string.AboutLabel));
                     break;

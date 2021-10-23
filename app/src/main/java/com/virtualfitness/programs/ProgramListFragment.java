@@ -128,7 +128,7 @@ public class ProgramListFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.tab_program_list, container, false);
+        View view = inflater.inflate(R.layout.tab_search_food, container, false);
 
 
         if (savedInstanceState == null) {

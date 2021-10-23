@@ -97,6 +97,7 @@
     <string name="nbSeriesPerDate">"Núm. de series por fecha"</string>
     <string name="all">Todo</string>
     <string name="bodytracking">Monitor corporal</string>
+    <string name="food">Comida</string>
     <string name="selectMuscles">Selecionar músculos</string>
     <!-- Muscles -->
     <string name="biceps">Bíceps</string>
@@ -152,7 +153,7 @@
     <string name="name_or_pseudo">Nombre / apodo</string>
     <string name="name_is_required">El nombre es necesario</string>
     <string name="create_a_profile">Crear un perfil</string>
-    <string name="introSlide1Text">¡Bienvenido a VirtualFitness!.</string>
+    <string name="introSlide1Text">¡Bienvenido a Virtual Fitness!.</string>
     <string name="introSlide2Text">Escribe el nombre del ejercicio y sus detalles; este será creado automáticamente y será añadido a la lista de tus ejercicios.</string>
     <string name="introSlide2Title">Rápido y fácil</string>
     <string name="titleSlideEssential">Vamos a lo escencial</string>
