@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name2" translatable="false">Virtual Fitness</string>
+    <string name="app_name2" translatable="false">EasyFitness</string>
     <string name="global_confirm">Confirmar</string>
     <string name="global_confirm_question">¿Estás seguro?</string>
     <string name="global_warning">Aviso</string>
@@ -238,6 +238,7 @@
     <string name="finish_program">Finalizar programa</string>
     <string name="newStr">Nuevo</string>
     <string name="new_program">Nuevo programa</string>
+    <string name="new_food">Nueva dieta</string>
     <string name="program_running">Programa actual:</string>
     <string name="program_preview">Progreso actual:</string>
     <string name="programs">Programas:</string>

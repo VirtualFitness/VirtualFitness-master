@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:name="tab_program_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +14,7 @@
     <Button
         android:id="@+id/newWorkout"
         style="@style/Widget.AppCompat.Button.AddButton"
-        android:text="@string/new_program" />
+        android:text="@string/new_food" />
 
     <AutoCompleteTextView
         android:id="@+id/searchField"
@@ -32,5 +33,6 @@
         android:layout_height="match_parent"
         android:drawSelectorOnTop="false"
         android:minHeight="300dip" />
+
 
 </LinearLayout>

@@ -303,8 +303,8 @@ public class MainActivity extends AppCompatActivity {
         dataList.add(drawerTitleItem);
         dataList.add(new DrawerItem(this.getResources().getString(R.string.menu_Workout), R.drawable.ic_fitness_center, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.MachinesLabel), R.drawable.ic_exercises, true));
-        dataList.add(new DrawerItem("Lista de programas", R.drawable.ic_exam, true));
-        dataList.add(new DrawerItem(this.getResources().getString(R.string.food), R.drawable.ic_food, true));
+        //dataList.add(new DrawerItem("Lista de programas", R.drawable.ic_exam, true));
+        //dataList.add(new DrawerItem(this.getResources().getString(R.string.food), R.drawable.ic_food, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.weightMenuLabel), R.drawable.ic_bathroom_scale, true));
         dataList.add(new DrawerItem(this.getResources().getString(R.string.bodytracking), R.drawable.ic_ruler, true));
         //dataList.add(new DrawerItem(this.getResources().getString(R.string.SettingLabel), R.drawable.ic_settings, true));
@@ -1003,33 +1003,34 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case 2:
-                    showFragment(MACHINES);
-                    setTitle(getResources().getText(R.string.MachinesLabel));
+                   showFragment(MACHINES);
+                   setTitle(getResources().getText(R.string.MachinesLabel));
                     break;
 
-                case 3:
+              /*  case 2:
                     showFragment(WORKOUTS);
                     setTitle(getString(R.string.workout_list_menu_item));
-                    break;
-                case 4:
+                    break;*/
+                case 3:
                     showFragment(WEIGHT);
                     setTitle(getResources().getText(R.string.weightMenuLabel));
                     break;
-                case 5:
+                case 4:
                     showFragment(BODYTRACKING);
                     setTitle(getResources().getText(R.string.bodytracking));
                     break;
+
                 /*case 4:
                     showFragment(FOOD);
                     setTitle(getResources().getText(R.string.food));
                     break;*/
 
-                case 6:
+                /*case 5:
                     showFragment(SETTINGS);
                     setTitle(getResources().getText(R.string.SettingLabel));
-                    break;
+                    break;*/
 
-                case 7:
+                case 5:
                     showFragment(ABOUT);
                     setTitle(getResources().getText(R.string.AboutLabel));
                     break;

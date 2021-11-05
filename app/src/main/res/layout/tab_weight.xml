@@ -75,7 +75,8 @@
                 android:layout_weight="1"
                 android:minWidth="70dp"
                 android:minHeight="70dp"
-                app:cardCornerRadius="5dp">
+                app:cardCornerRadius="5dp"
+                android:visibility="invisible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -118,7 +119,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_gravity="start"
             android:gravity="center"
             android:orientation="horizontal">
@@ -131,6 +132,7 @@
                 android:layout_weight="1"
                 android:minWidth="70dp"
                 android:minHeight="70dp"
+                android:visibility="invisible"
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
@@ -161,8 +163,8 @@
 
                     <Button
                         android:id="@+id/musclesDetailsButton"
-                        android:drawableStart="@drawable/ic_list_alt"
                         style="@style/Widget.AppCompat.Button.Borderless.DetailsButton"
+                        android:drawableStart="@drawable/ic_list_alt"
                         android:text="@string/details" />
                 </LinearLayout>
 
@@ -176,6 +178,7 @@
                 android:layout_weight="1"
                 android:minWidth="70dp"
                 android:minHeight="70dp"
+                android:visibility="invisible"
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
@@ -207,8 +210,8 @@
 
                     <Button
                         android:id="@+id/waterDetailsButton"
-                        android:drawableStart="@drawable/ic_list_alt"
                         style="@style/Widget.AppCompat.Button.Borderless.DetailsButton"
+                        android:drawableStart="@drawable/ic_list_alt"
                         android:text="@string/details" />
                 </LinearLayout>
 
@@ -334,7 +337,8 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
                         <TextView
                             android:layout_width="wrap_content"
